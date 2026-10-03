@@ -12,7 +12,7 @@ html, body { height: 100%; font-family: "Inter", sans-serif; background: #fff; c
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
 
-/* ── NAV ── */
+/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0;
   display: flex; align-items: center; gap: 2.5rem;
@@ -29,60 +29,38 @@ nav a {
 nav a:hover { color: #111; }
 nav a.active { color: #111; border-bottom-color: #111; }
 
-/* ── HERO ── */
+/* HERO */
 .hero {
   position: relative;
   width: 100%;
   height: 420px;
   margin-top: 52px;
   overflow: hidden;
-  background: #f0f0f0;
+  background: #222;
   display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
 }
-
-.hero-bg {
+.hero img.hero-bg {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  display: none;
+  opacity: 0.7;
 }
-
-.hero-upload-hint {
-  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-  color: #aaa; user-select: none; pointer-events: none;
-}
-
-.hero-upload-hint svg {
-  width: 32px; height: 32px;
-  stroke: #ccc; fill: none;
-  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
-}
-
-.hero-upload-hint span { font-size: 0.75rem; letter-spacing: 0.04em; }
-
-.hero-overlay {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-}
-
 .hero-title {
+  position: relative;
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 300;
   letter-spacing: -0.02em;
   color: #fff;
-  text-shadow: 0 1px 20px rgba(0,0,0,0.4);
-  pointer-events: none;
-  display: none;
+  text-shadow: 0 1px 20px rgba(0,0,0,0.5);
+  z-index: 1;
 }
 
-/* ── ABOUT ── */
+/* ABOUT */
 .about {
   max-width: 900px;
   margin: 0 auto;
   padding: 4rem 2.5rem 6rem;
 }
-
 .about h2 {
   font-size: 1.1rem;
   font-weight: 500;
@@ -91,71 +69,28 @@ nav a.active { color: #111; border-bottom-color: #111; }
   color: #999;
   margin-bottom: 2.5rem;
 }
-
 .about-inner {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 3rem;
   align-items: start;
 }
-
-/* Headshot */
-.headshot-wrap {
-  position: relative;
+.headshot {
+  width: 100%;
   aspect-ratio: 3/4;
-  background: #f0f0f0;
-  border-radius: 4px;
-  overflow: hidden;
-  cursor: pointer;
-  border: 1.5px dashed #ddd;
-  transition: border-color 0.15s;
-  display: flex; align-items: center; justify-content: center;
-}
-
-.headshot-wrap:hover { border-color: #aaa; }
-
-.headshot-wrap img#headshot {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
   object-fit: cover;
-  display: none;
   border-radius: 4px;
 }
-
-.headshot-ph {
-  display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
-  color: #ccc; pointer-events: none;
-}
-
-.headshot-ph svg {
-  width: 24px; height: 24px;
-  stroke: currentColor; fill: none;
-  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
-}
-
-.headshot-ph span { font-size: 0.65rem; letter-spacing: 0.04em; }
-
-/* Bio */
-.bio-text {
+.bio {
   font-size: 0.95rem;
   line-height: 1.8;
   color: #444;
-  outline: none;
-  min-height: 60px;
 }
 
-.bio-text[contenteditable]:empty::before {
-  content: "Click here to type your bio...";
-  color: #ccc;
-}
-
-/* hidden file inputs */
-input[type=file] { display: none; }
-
-/* ── RESPONSIVE ── */
+/* RESPONSIVE */
 @media (max-width: 640px) {
   .about-inner { grid-template-columns: 1fr; }
-  .headshot-wrap { max-width: 180px; }
+  .headshot { max-width: 180px; }
   .hero { height: 280px; }
 }
 </style>
@@ -163,66 +98,31 @@ input[type=file] { display: none; }
 <body>
 
 <nav>
-  <a href="about.html" class="active">About</a>
+  <a href="index.html" class="active">About</a>
   <a href="resume.html">Resume</a>
   <a href="projects.html">Projects</a>
   <a href="contact.html">Contact</a>
 </nav>
 
-<!-- HERO — click to upload background -->
-<div class="hero" onclick="document.getElementById('bg-picker').click()">
-  <img id="hero-bg" class="hero-bg" src="" alt="">
-  <div class="hero-upload-hint" id="bg-hint">
-    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-    <span>click to add background photo</span>
-  </div>
-  <div class="hero-overlay">
-    <h1 class="hero-title" id="hero-title">Sheng Cui Portfolio</h1>
-  </div>
+<!-- HERO — replace background.jpg with your own image name if different -->
+<div class="hero">
+  <img class="hero-bg" src="images/background.jpg" alt="">
+  <h1 class="hero-title">Sheng Cui Portfolio</h1>
 </div>
-<input type="file" id="bg-picker" accept="images/*">
 
 <!-- ABOUT -->
 <section class="about">
   <h2>About Me</h2>
   <div class="about-inner">
 
-    <!-- Headshot -->
-    <div class="headshot-wrap" onclick="document.getElementById('headshot-picker').click()">
-      <img id="headshot" src="" alt="Sheng Cui">
-      <div class="headshot-ph" id="headshot-ph">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        <span>add headshot</span>
-      </div>
-    </div>
-    <input type="file" id="headshot-picker" accept="images/*">
+    <img class="headshot" src="images/headshot.jpg" alt="Sheng Cui">
 
-    <!-- Bio — click to edit -->
-    <p class="bio-text" contenteditable="true" spellcheck="false">Click here to type your bio...</p>
+    <p class="bio">
+      Write your bio here. Click the pencil icon on GitHub to edit this file and replace this text with your own paragraph.
+    </p>
 
   </div>
 </section>
-
-<script>
-// Background photo
-document.getElementById('bg-picker').addEventListener('change', function() {
-  const file = this.files[0]; if (!file) return;
-  const url = URL.createObjectURL(file);
-  const bg = document.getElementById('hero-bg');
-  bg.src = url; bg.style.display = 'block';
-  document.getElementById('bg-hint').style.display = 'none';
-  document.getElementById('hero-title').style.display = 'block';
-});
-
-// Headshot
-document.getElementById('headshot-picker').addEventListener('change', function() {
-  const file = this.files[0]; if (!file) return;
-  const url = URL.createObjectURL(file);
-  const img = document.getElementById('headshot');
-  img.src = url; img.style.display = 'block';
-  document.getElementById('headshot-ph').style.display = 'none';
-});
-</script>
 
 </body>
 </html>
