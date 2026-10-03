@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume | Sheng Cui</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: "Inter", sans-serif; background: #fff; color: #111; }
+a { text-decoration: none; color: inherit; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  display: flex; align-items: center; gap: 2.5rem;
+  padding: 0 2.5rem; height: 52px;
+  background: #fff; border-bottom: 1px solid #e8e8e8;
+  z-index: 100;
+}
+nav a {
+  font-size: 0.82rem; font-weight: 500; color: #666;
+  letter-spacing: 0.01em; padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+nav a:hover { color: #111; }
+nav a.active { color: #111; border-bottom-color: #111; }
+
+.page {
+  padding-top: 52px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resume-inner {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.resume-inner h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 2.5rem;
+}
+
+/* Download button */
+.dl-btn {
+  display: inline-block;
+  padding: 0.85rem 2.2rem;
+  background: #111;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  border-radius: 3px;
+  letter-spacing: 0.02em;
+  transition: background 0.15s, transform 0.15s;
+  cursor: pointer;
+}
+
+.dl-btn:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="about.html">About</a>
+  <a href="resume.html" class="active">Resume</a>
+  <a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="page">
+  <div class="resume-inner">
+    <h2>Resume</h2>
+    <!-- 
+      To make this work:
+      1. Put your resume PDF in the same folder as this file
+      2. Rename it to: resume.pdf
+      That's it — the button below will download it automatically.
+    -->
+    <a href="resume.pdf" download class="dl-btn">Download My Resume</a>
+  </div>
+</div>
+
+</body>
+</html>
