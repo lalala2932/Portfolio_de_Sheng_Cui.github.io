@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analog IC Design | Sheng Cui</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { font-family: "Inter", sans-serif; background: #fff; color: #111; }
+a { text-decoration: none; color: inherit; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  display: flex; align-items: center; gap: 2.5rem;
+  padding: 0 2.5rem; height: 52px;
+  background: #fff; border-bottom: 1px solid #e8e8e8;
+  z-index: 100;
+}
+nav a {
+  font-size: 0.82rem; font-weight: 500; color: #666;
+  letter-spacing: 0.01em; padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+nav a:hover { color: #111; }
+nav a.active { color: #111; border-bottom-color: #111; }
+
+/* PAGE */
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: calc(52px + 3.5rem) 2.5rem 6rem;
+}
+.page p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+@media (max-width: 700px) {
+  nav { gap: 1.25rem; padding: 0 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">About</a>
+  <a href="resume.html">Resume</a>
+  <a href="projects.html" class="active">Projects</a>
+  <a href="contact.html">Contact</a>
+  <a href="fun.html">Fun Stuff</a>
+</nav>
+
+<div class="page">
+  <p>
+    I am currently taking Analog IC Design. My designs and projects will be uploaded here as I progress through the course.
+  </p>
+</div>
+
+</body>
+</html>
